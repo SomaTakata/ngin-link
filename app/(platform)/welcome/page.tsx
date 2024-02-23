@@ -12,12 +12,13 @@ const Welcome = () => {
 
       <FormNginLinkId />
 
-      <p className="mt-6 text-sm">
+      {/* FIXME: 消す or Clerk 改造する */}
+      {/* <p className="mt-6 text-sm">
         すでにアカウントをお持ちですか？
         <Link className="text-[#5c4ac7]" href="#">
           ログインする
         </Link>
-      </p>
+      </p> */}
     </div>
   )
 }

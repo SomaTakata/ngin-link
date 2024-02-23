@@ -1,11 +1,20 @@
 "use client";
 
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
 
 const FormNginLinkId = () => {
 
+  const router = useRouter();
+
+  // form 送信時
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push("/register/your-information");
+  };
+
   return (
-    <form>      
+    <form onSubmit={handleSubmit}>      
       <div className="mt-8 w-full max-w-md">
         <div className="flex items-center rounded-md border border-gray-300 bg-white px-3 py-2">
           <span className="text-gray-500">nginlink.com /</span>

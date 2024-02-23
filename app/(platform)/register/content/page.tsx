@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function Component() {
   return (
@@ -48,7 +49,9 @@ export default function Component() {
           </div>
         </div>
       </div>
-      <Button className="w-full">Next</Button>
+      <Button asChild className="w-full">
+        <Link href="/register/done">Next</Link>
+      </Button>
     </div>
   )
 }
