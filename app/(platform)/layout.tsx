@@ -7,7 +7,9 @@ const PlatformLayout = ({
 }) => {
   return (
     <ClerkProvider>
-      {children}
+      <div className="h-screen flex items-center justify-center">
+        {children}
+      </div>
     </ClerkProvider>
   );
 };
