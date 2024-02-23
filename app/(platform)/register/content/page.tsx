@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-export default function Component() {
+const RegisterContent = () => {
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow">
       <h2 className="text-2xl font-semibold mb-4">Let&apos;s make it yours</h2>
@@ -55,6 +55,8 @@ export default function Component() {
     </div>
   )
 }
+
+export default RegisterContent;
 
 function InstagramIcon(props) {
   return (

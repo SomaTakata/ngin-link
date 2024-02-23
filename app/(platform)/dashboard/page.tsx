@@ -4,7 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import Link from "next/link"
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 
-export default function Component() {
+const Dashboard = () => {
   return (
     <div className="min-h-screen w-screen bg-gray-100 p-8">
       <div className="flex justify-between">
@@ -106,6 +106,8 @@ export default function Component() {
     </div>
   )
 }
+
+export default Dashboard;
 
 function CopyIcon(props) {
   return (
