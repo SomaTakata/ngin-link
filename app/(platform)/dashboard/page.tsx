@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
-import { Checkbox } from "@/components/ui/checkbox"
-import Link from "next/link"
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
+import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 
 const Dashboard = () => {
   return (
@@ -34,9 +34,14 @@ const Dashboard = () => {
               <Switch id="customize-page" />
             </div>
           </div>
-          <Button className="w-full bg-purple-600 text-white">+ Add link</Button>
+          <Button className="w-full bg-purple-600 text-white">
+            + Add link
+          </Button>
           <Checkbox id="add-header" />
-          <label className="text-sm font-medium leading-none" htmlFor="add-header">
+          <label
+            className="text-sm font-medium leading-none"
+            htmlFor="add-header"
+          >
             Add header
           </label>
           <Link className="block text-blue-600" href="#">
@@ -44,7 +49,9 @@ const Dashboard = () => {
           </Link>
           <div className="bg-white p-4 shadow-sm rounded-md">
             <h2 className="font-semibold">SomaTakata (SomaTakata) - GitHub</h2>
-            <p className="text-sm text-gray-600">https://github.com/SomaTakata</p>
+            <p className="text-sm text-gray-600">
+              https://github.com/SomaTakata
+            </p>
             <div className="flex items-center justify-end space-x-2 pt-2">
               <FileEditIcon className="text-gray-500" />
               <DeleteIcon className="text-gray-500" />
@@ -84,12 +91,17 @@ const Dashboard = () => {
             <div className="w-64 bg-gray-200 p-4 rounded-lg">
               <div className="flex flex-col items-center">
                 <Avatar>
-                  <AvatarImage alt="@SomaTakata" src="/placeholder.svg?height=100&width=100" />
+                  <AvatarImage
+                    alt="@SomaTakata"
+                    src="/placeholder.svg?height=100&width=100"
+                  />
                   <AvatarFallback>ST</AvatarFallback>
                 </Avatar>
                 <h2 className="font-bold text-lg mt-2">@SomaTakata</h2>
                 <div className="mt-4 w-full bg-white p-2 rounded-md shadow">
-                  <p className="text-sm font-semibold">SomaTakata (SomaTakata) - GitHub</p>
+                  <p className="text-sm font-semibold">
+                    SomaTakata (SomaTakata) - GitHub
+                  </p>
                 </div>
                 <div className="mt-4 w-full bg-white p-2 rounded-md shadow">
                   <p className="text-sm font-semibold">TikTok</p>
@@ -104,8 +116,8 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Dashboard;
 
@@ -126,9 +138,8 @@ function CopyIcon(props) {
       <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
       <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
     </svg>
-  )
+  );
 }
-
 
 function DeleteIcon(props) {
   return (
@@ -148,9 +159,8 @@ function DeleteIcon(props) {
       <line x1="18" x2="12" y1="9" y2="15" />
       <line x1="12" x2="18" y1="9" y2="15" />
     </svg>
-  )
+  );
 }
-
 
 function FileEditIcon(props) {
   return (
@@ -170,9 +180,8 @@ function FileEditIcon(props) {
       <polyline points="14 2 14 8 20 8" />
       <path d="M10.42 12.61a2.1 2.1 0 1 1 2.97 2.97L7.95 21 4 22l.99-3.95 5.43-5.44Z" />
     </svg>
-  )
+  );
 }
-
 
 function LinkIcon(props) {
   return (
@@ -191,9 +200,8 @@ function LinkIcon(props) {
       <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
       <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
     </svg>
-  )
+  );
 }
-
 
 function PaintbrushIcon(props) {
   return (
@@ -213,9 +221,8 @@ function PaintbrushIcon(props) {
       <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" />
       <path d="M14.5 17.5 4.5 15" />
     </svg>
-  )
+  );
 }
-
 
 function ViewIcon(props) {
   return (
@@ -236,5 +243,5 @@ function ViewIcon(props) {
       <path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2" />
       <path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2" />
     </svg>
-  )
+  );
 }

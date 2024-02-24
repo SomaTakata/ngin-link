@@ -1,6 +1,5 @@
-
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Done = () => {
   return (
@@ -13,7 +12,7 @@ const Done = () => {
           Registration Successful!
         </h1>
         <p className="mt-2 text-center text-gray-600 dark:text-gray-400">
-          You have successfully completed the registration process. 
+          You have successfully completed the registration process.
         </p>
         <div className="mt-6">
           <Button asChild className="w-full">
@@ -22,8 +21,8 @@ const Done = () => {
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
 export default Done;
 
@@ -44,5 +43,5 @@ function CheckCircleIcon(props) {
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
       <polyline points="22 4 12 14.01 9 11.01" />
     </svg>
-  )
+  );
 }

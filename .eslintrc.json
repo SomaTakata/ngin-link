@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    // non-scoped
+    "eslint:airbnb-base",
+    "plugin:react/recommended",
+    "prettier",
+    // scoped
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+
+  "env": {
+    "browser": true, // documentやwindows
+    "es6": true // ES6で追加された構文/オブジェクト
+  }
 }

@@ -1,20 +1,25 @@
-import { AvatarImage, Avatar, AvatarFallback } from "@/components/ui/avatar"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { AvatarImage, Avatar, AvatarFallback } from "@/components/ui/avatar";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-const PublicUserPage = ({ params }: { params: { userId: string }}) => {
+const PublicUserPage = ({ params }: { params: { userId: string } }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#faf1e6] p-4">
       <div className="w-full max-w-sm space-y-6">
         <div className="flex items-center justify-between">
           <Avatar>
-            <AvatarImage alt="Profile picture" src="/placeholder.svg?height=40&width=40" />
+            <AvatarImage
+              alt="Profile picture"
+              src="/placeholder.svg?height=40&width=40"
+            />
             <AvatarFallback>ST</AvatarFallback>
           </Avatar>
           <MoreHorizontalIcon className="text-gray-500" />
         </div>
         <h1 className="text-center text-2xl font-bold">shogo0x2e</h1>
-        <p className="text-center text-sm text-gray-600">学生エンジニア | Human Computer Interaction</p>
+        <p className="text-center text-sm text-gray-600">
+          学生エンジニア | Human Computer Interaction
+        </p>
         <div className="space-y-4">
           <Link className="block rounded-lg bg-white p-4 shadow" href="#">
             <div className="flex justify-between">
@@ -41,12 +46,14 @@ const PublicUserPage = ({ params }: { params: { userId: string }}) => {
             </div>
           </Link>
         </div>
-        <Button className="mx-auto w-full bg-black text-white">Create your Linktree</Button>
+        <Button className="mx-auto w-full bg-black text-white">
+          Create your Linktree
+        </Button>
       </div>
       <p className="mt-6 text-xs text-gray-500">Cookie Preferences</p>
     </div>
-  )
-}
+  );
+};
 
 export default PublicUserPage;
 
@@ -68,9 +75,8 @@ function ExternalLinkIcon(props) {
       <polyline points="15 3 21 3 21 9" />
       <line x1="10" x2="21" y1="14" y2="3" />
     </svg>
-  )
+  );
 }
-
 
 function MoreHorizontalIcon(props) {
   return (
@@ -90,6 +96,5 @@ function MoreHorizontalIcon(props) {
       <circle cx="19" cy="12" r="1" />
       <circle cx="5" cy="12" r="1" />
     </svg>
-  )
+  );
 }
-
