@@ -6,6 +6,7 @@ import { useFetchWithAuth, useMutationWithAuth } from "@/hook/fetch-auth";
 import { GetUsersResponse } from "@/types/users-types";
 import { PatchLinksRequest, PatchLinksResponse } from "@/types/links-types";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useToast } from "@/components/ui/use-toast";
 
 const Dashboard = () => {
   const { response, loading, refetch } =
@@ -15,6 +16,7 @@ const Dashboard = () => {
     method: "PATCH",
   });
 
+  const { toast } = useToast();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: Object) => {
@@ -25,7 +27,12 @@ const Dashboard = () => {
     });
 
     // バックエンドに PATCH して、refetch
-    mutate(body, refetch);
+    mutate(body, () => {
+      refetch();
+      toast({
+        title: "URL を保存しました！",
+      });
+    });
   };
 
   return (
