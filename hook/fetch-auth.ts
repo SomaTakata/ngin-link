@@ -24,7 +24,7 @@ export const useMutationWithAuth = <T>(
   }, []);
 
   const mutate = useCallback(
-    (body: any, after: () => void) => {
+    (body: any, after?: () => void) => {
       if (!jwt) {
         console.error("No token found");
         return;
@@ -40,7 +40,7 @@ export const useMutationWithAuth = <T>(
           setResponse(res);
           setLoading(false);
         })
-        .then(() => after())
+        .then(() => after && after())
         .catch(console.error);
     },
     [jwt, input, backendUrl]
