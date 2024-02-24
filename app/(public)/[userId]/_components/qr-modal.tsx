@@ -15,7 +15,7 @@ const QrModal = ({ params }: { params: { userId: string } }) => {
         />
       </DialogTrigger>
       <DialogContent className="w-fit p-10 rounded-2xl">
-        <QRCode className="" value={`${frontUrl}/${params.userId}`} />
+        <QRCode className="" value={`${params.userId}`} />
       </DialogContent>
     </Dialog>
   );
