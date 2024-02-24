@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
-import LinkForm from "./_components/linkForm";
+import LinkForm from "./_components/link-form";
 
 const Dashboard = () => {
   return (
