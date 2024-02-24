@@ -1,8 +1,18 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import LinkForm from "./_components/link-form";
+import { useFetchWithAuth } from "@/hook/fetch-auth";
+import { GetUsersResponse } from "@/types/users-types";
 
 const Dashboard = () => {
+  const { response, loading, refetch } =
+    useFetchWithAuth<GetUsersResponse>("/users");
+
+  const handleClick = () => {
+    refetch();
+  };
+
   return (
     <div className="min-h-screen w-screen bg-white p-8">
       <div className="flex justify-between">
@@ -16,10 +26,19 @@ const Dashboard = () => {
             </h1>
             <Button className=" ">Copy URL</Button>
           </div>
-          <LinkForm platform="github" />
-          <LinkForm platform="twitter" />
-          <LinkForm platform="zenn" />
-          <LinkForm platform="qiita" />
+          {loading && <p>Now Loading...</p>}
+          {!loading &&
+            response &&
+            response.NginLink.SocialLinks.map((link) => {
+              return (
+                <LinkForm
+                  key={`${link.PlatformName}${link.URL}`}
+                  platform={link.PlatformName}
+                  urlTo={link.URL}
+                />
+              );
+            })}
+          <Button onClick={handleClick}>再読み込み</Button>
         </div>
         <div className="w-1/2 pl-4">
           <div className="bg-white p-4 shadow-sm rounded-md flex justify-center items-center"></div>
