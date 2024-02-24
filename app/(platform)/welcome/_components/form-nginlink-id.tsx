@@ -24,12 +24,10 @@ const FormNginLinkId = () => {
           />
         </div>
         <p className="mt-2 text-xs text-gray-500 text-center">
-          続ける場合は、LinkTree の 利用規約に同意したものとみなされます。
+          続ける場合は、NginLink の 利用規約に同意したものとみなされます。
         </p>
       </div>
-      <Button className="mt-4 w-full max-w-md rounded-full bg-[#5c4ac7] py-3 text-white">
-        Continue
-      </Button>
+      <Button className="mt-4 w-full ">Continue</Button>
     </form>
   );
 };

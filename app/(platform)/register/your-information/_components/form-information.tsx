@@ -22,16 +22,16 @@ const FormInformation = () => {
           className="block mb-2 text-sm font-medium text-gray-900"
           htmlFor="name"
         >
-          名前
+          ニックネーム（ ※サイトに表示されます ）
         </label>
-        <Input id="name" placeholder="山田 太郎" />
+        <Input id="name" placeholder="やまだ" />
       </div>
       <div className="mb-6">
         <label
           className="block mb-2 text-sm font-medium text-gray-900"
           htmlFor="occupation"
         >
-          学校名
+          学校名（ 後で表示非表示設定可能 ）
         </label>
         <Input id="occupation" placeholder="◯◯大学" />
       </div>

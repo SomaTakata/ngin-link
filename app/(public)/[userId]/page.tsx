@@ -47,7 +47,7 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
           </Link>
         </div>
         <Button className="mx-auto w-full bg-black text-white">
-          Create your Linktree
+          Create your NginLink
         </Button>
       </div>
       <p className="mt-6 text-xs text-gray-500">Cookie Preferences</p>
