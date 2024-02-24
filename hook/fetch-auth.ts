@@ -52,7 +52,7 @@ export const useMutationWithAuth = <T>(
 export const useFetchWithAuth = <T>(input: string) => {
   const [response, setResponse] = useState<T>();
   const [loading, setLoading] = useState<boolean>(true); // 初期値をtrueに設定
-  const [isError, setIsError] = useState<boolean>(false);
+  const [isNotFound, setIsNotFound] = useState<boolean>(false);
   const { getToken } = useAuth();
 
   const [jwt, setJwt] = useState<string>();
@@ -61,20 +61,21 @@ export const useFetchWithAuth = <T>(input: string) => {
   const refetch = useCallback(() => {
     if (!jwt) {
       setLoading(false); // JWTがない場合はローディングを終了
-      setIsError(true);
+
       return;
     }
     fetch(`${backendUrl}${input}`, {
       headers: { Authorization: `Bearer ${jwt}` },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 404) setIsNotFound(true);
+        if (res.status === 200) setIsNotFound(false);
+        return res.json();
+      })
       .then((res) => {
         setResponse(res);
-        setIsError(false);
-        setLoading(false); // データ取得成功時にローディングを終了
       })
       .catch((err) => {
-        setIsError(true);
         setLoading(false); // エラー発生時にもローディングを終了
       });
   }, [jwt, input, backendUrl]);
@@ -94,5 +95,5 @@ export const useFetchWithAuth = <T>(input: string) => {
     refetch();
   }, [refetch]);
 
-  return { response, loading, refetch, isError };
+  return { response, loading, refetch, isNotFound };
 };
