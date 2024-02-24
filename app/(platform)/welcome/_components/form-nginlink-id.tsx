@@ -17,6 +17,7 @@ const FormNginLinkId = () => {
 
   return (
     <div>
+      {/* FIXME: register 処理が一通り実装されたらコメントアウト解除 */}
       {/* <AlertUserExists /> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mt-8 w-full max-w-md">
