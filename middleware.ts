@@ -6,8 +6,21 @@ import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
 // See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware
 export default authMiddleware({
   publicRoutes: ["/"],
+  afterAuth: (auth, req) => {
+    // 保護するルート (例えば, /dashboard/* が保護される)
+    const protectRoutes = ["/dashboard", "/welcome", "/register"];
+
+    for (const route of protectRoutes) {
+      if (!auth.userId && req.nextUrl.pathname.startsWith(route)) {
+        return redirectToSignIn({ returnBackUrl: req.url });
+      }
+    }
+
+    // Allow users visiting public routes to access them
+    return NextResponse.next();
+  },
 });
 
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };

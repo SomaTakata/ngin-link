@@ -1,8 +1,24 @@
+"use client";
+
 import { AvatarImage, Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@clerk/nextjs";
+import QRCode from "react-qr-code";
+import { useFrontendUrl } from "@/hook/process-env";
 
 const PublicUserPage = ({ params }: { params: { userId: string } }) => {
+  const { isSignedIn } = useAuth();
+  const frontUrl = useFrontendUrl();
+
+  if (isSignedIn) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <QRCode value={`${frontUrl}/${params.userId}`} />
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#1a1e2e] p-4">
       <div className=" md:w-[732px]">
