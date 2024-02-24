@@ -77,7 +77,7 @@ const config = {
         "c-github": " linear-gradient(144deg,#fff,#e6e6e6 60%,#e6e6e6)",
         "c-qiita": "linear-gradient(144deg,#cafec3, #78e669 60%,#31fe16)",
         "c-x": "linear-gradient(144deg,#696969,#2b2b2b 60%,#000000)",
-        "c-person": " linear-gradient(144deg,#ffc370,#ffa424 60%,#ff9500)",
+        "c-person": " linear-gradient(144deg,#ffd79e,#ffce8a 60%,#ff9500)",
       },
     },
   },
