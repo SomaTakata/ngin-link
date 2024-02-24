@@ -2,7 +2,7 @@ import { useAuth } from "@clerk/nextjs";
 import { useCallback, useEffect, useState } from "react";
 import { useBackendUrl } from "./process-env";
 
-export const useFetchWithAuth = <T>(input: string, options?: RequestInit) => {
+export const useFetchWithAuth = <T>(input: string) => {
   const [response, setResponse] = useState<T>();
   const [loading, setLoading] = useState<boolean>(false);
   const { getToken } = useAuth();
@@ -15,7 +15,6 @@ export const useFetchWithAuth = <T>(input: string, options?: RequestInit) => {
     if (!jwt) return;
     setLoading(true);
     fetch(`${backendUrl}${input}`, {
-      ...options,
       headers: { Authorization: `Bearer ${jwt}` },
     })
       .then((res) => {
@@ -28,7 +27,7 @@ export const useFetchWithAuth = <T>(input: string, options?: RequestInit) => {
       .catch((err) => {
         console.error(err);
       });
-  }, [jwt, input, options, backendUrl]);
+  }, [jwt, input, backendUrl]);
 
   // JWT 取得
   useEffect(() => {
