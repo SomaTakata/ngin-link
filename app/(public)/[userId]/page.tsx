@@ -3,18 +3,18 @@
 import { AvatarImage, Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ClerkProvider, useAuth } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import QRCode from "react-qr-code";
-import { useBackendUrl, useFrontendUrl } from "@/hook/process-env";
+import { useFrontendUrl } from "@/hook/process-env";
 
 const PublicUserPage = ({ params }: { params: { userId: string } }) => {
   const { isSignedIn } = useAuth();
-  const baseUrl = useFrontendUrl();
+  const frontUrl = useFrontendUrl();
 
   if (isSignedIn) {
     return (
       <div className="h-screen flex justify-center items-center">
-        <QRCode value={`${baseUrl}/${params.userId}`} />
+        <QRCode value={`${frontUrl}/${params.userId}`} />
       </div>
     );
   }
