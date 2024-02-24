@@ -60,20 +60,20 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
             </div>
           </Link>
           <Link
+            href="https://twitter.com/catnose99"
+            className="relative flex items-center justify-center rounded-2xl w-[163.75px] h-[163.75px] aspect-square shadow-[20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff] bg-c-x"
+          >
+            <div className="flex items-center justify-center">
+              <FaXTwitter className="h-14 w-14" />
+            </div>
+          </Link>
+          <Link
             href="https://zenn.dev/catnose99"
             className="relative flex items-center justify-center rounded-2xl w-[163.75px] h-[163.75px] aspect-square 
              bg-c-zenn shadow-[20px 20px 60px #bac4d9, -20px -20px 60px #fcffff]"
           >
             <div className="flex items-center justify-center">
               <SiZenn className="h-14 w-14" />
-            </div>
-          </Link>
-          <Link
-            href="https://twitter.com/catnose99"
-            className="relative flex items-center justify-center rounded-2xl w-[163.75px] h-[163.75px] aspect-square shadow-[20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff] bg-c-x"
-          >
-            <div className="flex items-center justify-center">
-              <FaXTwitter className="h-14 w-14" />
             </div>
           </Link>
           <Link

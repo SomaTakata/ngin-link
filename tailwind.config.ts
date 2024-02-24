@@ -74,7 +74,7 @@ const config = {
       },
       backgroundImage: {
         "c-zenn": "linear-gradient(145deg, #eaf7ff, #c5d0e6)",
-        "c-github": "linear-gradient(145deg, #ffffff, #e5e2e5)",
+        "c-github": "linear-gradient(145deg, #ffffff, #dadada)",
         "c-qiita": "linear-gradient(145deg, #f5fffd, #cee6d4)",
         "c-x": "linear-gradient(145deg, #ffffff, #e6e6e6)",
       },
