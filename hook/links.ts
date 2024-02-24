@@ -1,1 +1,3 @@
-const useLinks = () => {};
+const useLinks = () => {
+  console.log("useLinks");
+};
