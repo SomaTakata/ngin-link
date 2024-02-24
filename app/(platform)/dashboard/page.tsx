@@ -2,24 +2,44 @@
 
 import { Button } from "@/components/ui/button";
 import LinkForm from "./_components/link-form";
-import { useFetchWithAuth } from "@/hook/fetch-auth";
+import { useFetchWithAuth, useMutationWithAuth } from "@/hook/fetch-auth";
 import { GetUsersResponse } from "@/types/users-types";
+import { PatchLinksRequest, PatchLinksResponse } from "@/types/links-types";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 const Dashboard = () => {
   const { response, loading, refetch } =
     useFetchWithAuth<GetUsersResponse>("/users");
 
-  const handleClick = () => {
-    refetch();
+  const { mutate } = useMutationWithAuth<PatchLinksResponse>("/links", {
+    method: "PATCH",
+  });
+
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data: Object) => {
+    // Object を PatchLinksRequest に変換
+    let body: PatchLinksRequest = { social_links: [] };
+    Object.entries(data).forEach(([key, value]) => {
+      body.social_links.push({ platform_name: key, url: value });
+    });
+
+    // バックエンドに PATCH して、refetch
+    mutate(body, refetch);
   };
 
   return (
     <div className="min-h-screen w-screen bg-white p-8">
       <div className="flex justify-between">
-        <div className="w-1/2 space-y-6 pr-4">
+        <form
+          className="w-1/2 space-y-6 pr-4"
+          onSubmit={handleSubmit((data) => {
+            onSubmit(data);
+          })}
+        >
           <div className="flex items-center justify-between">
             <h1 className="text-lg font-semibold">
-              Your NginLink is live:{" "}
+              Your NginLink is live:
               <a className="text-blue-600" href="/somatakata">
                 ngin-link.com/SomaTakata
               </a>
@@ -29,17 +49,20 @@ const Dashboard = () => {
           {loading && <p>Now Loading...</p>}
           {!loading &&
             response &&
-            response.NginLink.SocialLinks.map((link) => {
+            response.ngin_link.social_links.map((link) => {
               return (
                 <LinkForm
-                  key={`${link.PlatformName}${link.URL}`}
-                  platform={link.PlatformName}
-                  urlTo={link.URL}
+                  key={`${link.platform_name}${link.url}`}
+                  platform={link.platform_name}
+                  urlTo={link.url}
+                  formRegister={register}
                 />
               );
             })}
-          <Button onClick={handleClick}>再読み込み</Button>
-        </div>
+          <div className="flex justify-center">
+            <Button type="submit">保存</Button>
+          </div>
+        </form>
         <div className="w-1/2 pl-4">
           <div className="bg-white p-4 shadow-sm rounded-md flex justify-center items-center"></div>
         </div>

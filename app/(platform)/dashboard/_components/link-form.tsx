@@ -6,17 +6,16 @@ import { XIcon } from "lucide-react";
 import { SiZenn, SiQiita } from "react-icons/si";
 import { BsGithub } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
-import { Switch } from "@/components/ui/switch";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 // propsの型定義
 interface LinkFormProps {
   platform: string;
   urlTo: string;
+  formRegister: UseFormRegister<FieldValues>;
 }
 
-function LinkForm({ platform, urlTo }: LinkFormProps) {
-  const [url, setUrl] = useState(urlTo);
-
+function LinkForm({ platform, urlTo, formRegister }: LinkFormProps) {
   let IconComponent;
   let iconColor = "";
   let placeHolderUrl = "";
@@ -54,8 +53,8 @@ function LinkForm({ platform, urlTo }: LinkFormProps) {
       <Input
         className="flex-grow mx-2"
         placeholder={placeHolderUrl}
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
+        defaultValue={urlTo}
+        {...formRegister(platform)}
       />
     </div>
   );
