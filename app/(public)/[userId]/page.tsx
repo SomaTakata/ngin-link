@@ -1,8 +1,24 @@
+"use client";
+
 import { AvatarImage, Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ClerkProvider, useAuth } from "@clerk/nextjs";
+import QRCode from "react-qr-code";
+import { useBackendUrl, useFrontendUrl } from "@/hook/process-env";
 
 const PublicUserPage = ({ params }: { params: { userId: string } }) => {
+  const { isSignedIn } = useAuth();
+  const baseUrl = useFrontendUrl();
+
+  if (isSignedIn) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <QRCode value={`${baseUrl}/${params.userId}`} />
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#faf1e6] p-4">
       <div className="w-full max-w-sm space-y-6">
@@ -57,7 +73,7 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
 
 export default PublicUserPage;
 
-function ExternalLinkIcon(props) {
+function ExternalLinkIcon(props: any) {
   return (
     <svg
       {...props}
@@ -78,7 +94,7 @@ function ExternalLinkIcon(props) {
   );
 }
 
-function MoreHorizontalIcon(props) {
+function MoreHorizontalIcon(props: any) {
   return (
     <svg
       {...props}
