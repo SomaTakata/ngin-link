@@ -51,47 +51,48 @@ export const useMutationWithAuth = <T>(
 
 export const useFetchWithAuth = <T>(input: string) => {
   const [response, setResponse] = useState<T>();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true); // 初期値をtrueに設定
+  const [isError, setIsError] = useState<boolean>(false);
   const { getToken } = useAuth();
 
   const [jwt, setJwt] = useState<string>();
   const backendUrl = useBackendUrl();
 
-  // 再取得の関数
   const refetch = useCallback(() => {
-    if (!jwt) return;
-    setLoading(true);
+    if (!jwt) {
+      setLoading(false); // JWTがない場合はローディングを終了
+      setIsError(true);
+      return;
+    }
     fetch(`${backendUrl}${input}`, {
       headers: { Authorization: `Bearer ${jwt}` },
     })
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((res) => {
         setResponse(res);
-        setLoading(false);
+        setIsError(false);
+        setLoading(false); // データ取得成功時にローディングを終了
       })
       .catch((err) => {
-        console.error(err);
+        setIsError(true);
+        setLoading(false); // エラー発生時にもローディングを終了
       });
   }, [jwt, input, backendUrl]);
 
-  // JWT 取得
   useEffect(() => {
     getToken({ template: "LongLongJWT" }).then((token) => {
       if (!token) {
         console.error("No token found");
+        setLoading(false); // トークン取得に失敗した場合はローディングを終了
         return;
       }
       setJwt(token);
     });
-  }, []);
+  }, [getToken]);
 
-  // JWT 使って fetch する
   useEffect(() => {
-    if (!jwt) return;
     refetch();
-  }, [jwt]);
+  }, [refetch]);
 
-  return { response, loading, refetch };
+  return { response, loading, refetch, isError };
 };
