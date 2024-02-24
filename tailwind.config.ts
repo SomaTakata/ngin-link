@@ -73,12 +73,14 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
-        "custom-gradient":
-          "linear-gradient(144deg, #84d0ff, #19a7ff 50%, var(--c-twitter) 60%, #1a7ee9)",
+        "c-zenn": "linear-gradient(144deg,#fff,#c3cbff 60%,#af99ff)",
+        "c-github": " linear-gradient(144deg,#fff,#e6e6e6 60%,#e6e6e6)",
+        "c-qiita": "linear-gradient(144deg,#cafec3, #78e669 60%,#31fe16)",
+        "c-x": "linear-gradient(144deg,#696969,#2b2b2b 60%,#000000)",
+        "c-person": " linear-gradient(144deg,#ffd79e,#ffce8a 60%,#ff9500)",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
 export default config;

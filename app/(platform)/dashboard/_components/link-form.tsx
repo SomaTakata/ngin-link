@@ -2,7 +2,7 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { XIcon } from "lucide-react";
 import { SiZenn, SiQiita } from "react-icons/si";
-import { FaGithub } from "react-icons/fa";
+import { BsGithub } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
 import { url } from "inspector";
 import { Switch } from "@/components/ui/switch";
@@ -35,7 +35,7 @@ function LinkForm({ platform }: LinkFormProps) {
       url = "https://twitter.com/";
       break;
     case "github":
-      IconComponent = FaGithub;
+      IconComponent = BsGithub;
       iconColor = "text-black";
       url = "https://github.com/";
       break;
