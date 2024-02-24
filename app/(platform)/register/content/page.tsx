@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import LinkForm from "./_components/linkForm";
+import LinkForm from "./_components/link-form";
 
 const RegisterContent = () => {
   return (
