@@ -7,6 +7,7 @@ import { useAuth } from "@clerk/nextjs";
 import QRCode from "react-qr-code";
 import { useFrontendUrl } from "@/hook/process-env";
 import { BsGithub, BsQrCodeScan } from "react-icons/bs";
+import { IoPersonCircleSharp } from "react-icons/io5";
 import {
   Dialog,
   DialogHeader,
@@ -25,7 +26,7 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
   return (
     <div className="flex flex-col items-center relative justify-center min-h-screen bg-[#1a1e2e] p-4">
       {isSignedIn ? <QrModal params={params} /> : <></>}
-      <div className="md:w-[732px]">
+      <div className="md:w-[732px] ">
         <div className="flex items-center gap-5 mb-6">
           <Avatar className="h-16 w-16 bg-[#ffa353]">
             <AvatarImage
@@ -50,7 +51,7 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
             主な職種 : フロントエンドエンジニア
           </p>
         </div>
-        <div className=" gap-12 flex">
+        <div className=" gap-6 flex flex-row flex-wrap">
           <Link
             href="https://twitter.com/catnose99"
             className="relative flex items-center justify-center rounded-2xl w-[163.75px] h-[163.75px] aspect-square  bg-c-github shadow-[20px 20px 60px #d5d5d5, -20px -20px 60px #ffffff]"
@@ -82,6 +83,14 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
           >
             <div className="flex items-center justify-center">
               <SiQiita className="h-20 w-20" />
+            </div>
+          </Link>
+          <Link
+            href="https://twitter.com/catnose99"
+            className="relative flex items-center justify-center rounded-2xl w-[163.75px] h-[163.75px] aspect-square shadow-[20px 20px 60px #c3d9c9, -20px -20px 60px #ffffff] bg-c-person"
+          >
+            <div className="flex items-center justify-center">
+              <IoPersonCircleSharp className="h-20 w-20" />
             </div>
           </Link>
         </div>
