@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const jobRoles = [
   "フロントエンド",
@@ -68,31 +70,57 @@ const programmingLanguages = [
 const FormInformation = () => {
   const router = useRouter();
 
+  const { register, handleSubmit } = useForm();
+
+  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
+  const [selectedJobRole, setSelectedJobRole] = useState<string>("");
+
   // form 送信時
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (data: any) => {
+    if (selectedLanguages.length === 0) {
+      alert("プログラミング言語を選択してください");
+      return;
+    }
+
+    if (selectedJobRole === "") {
+      alert("業種もしくは職種を選択してください");
+      return;
+    }
+
+    localStorage.setItem(
+      "programming_languages",
+      JSON.stringify(selectedLanguages)
+    );
+    localStorage.setItem("job_role", selectedJobRole);
+    localStorage.setItem("username", data.username);
     router.push("/register/content");
   };
 
+  const toggleLanguageSelection = (language: string) => {
+    setSelectedLanguages((currentSelected) => {
+      if (currentSelected.includes(language)) {
+        // すでに存在していたら消す
+        return currentSelected.filter((lang) => lang !== language);
+      } else {
+        // 3 つすでに選ばれていたら、一番古いものを消して新しいものを追加
+        return currentSelected.length < 3
+          ? [...currentSelected, language]
+          : [...currentSelected.slice(1), language];
+      }
+    });
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-6">
-        <label
-          className="block mb-2 text-sm font-medium text-gray-900"
-          htmlFor="name"
-        >
+        <label className="block mb-2 text-sm font-medium text-gray-900">
           ニックネーム（サイトに表示されます）
         </label>
-        <Input id="name" placeholder="やまだ" />
-      </div>
-      <div className="mb-6">
-        <label
-          className="block mb-2 text-sm font-medium text-gray-900"
-          htmlFor="occupation"
-        >
-          学校名（表示設定は後から可能です）
-        </label>
-        <Input id="occupation" placeholder="◯◯大学" />
+        <Input
+          id="name"
+          placeholder="やまだ"
+          {...register("username", { required: true })}
+        />
       </div>
       <div className="mb-6">
         <label className="block mb-2 text-sm font-medium text-gray-900">
@@ -100,7 +128,14 @@ const FormInformation = () => {
         </label>
         <div className="flex flex-wrap gap-2 h-[80px] overflow-y-scroll">
           {programmingLanguages.map((language) => (
-            <Badge variant="secondary">{language}</Badge>
+            <Badge
+              key={language}
+              variant="interactable"
+              onClick={() => toggleLanguageSelection(language)}
+              selected={selectedLanguages.includes(language)}
+            >
+              {language}
+            </Badge>
           ))}
         </div>
       </div>
@@ -108,15 +143,21 @@ const FormInformation = () => {
         <label className="block mb-2 text-sm font-medium text-gray-900">
           現在の業種もしくはなりたい職種 (1つ選択)
         </label>
-        <div className="flex flex-wrap gap-2">
-          <Badge variant="secondary">フロントエンド</Badge>
-          <Badge variant="secondary">バックエンド</Badge>
-          <Badge variant="secondary">インフラ</Badge>
-          <Badge variant="secondary">DevOps</Badge>
+        <div className="flex flex-wrap gap-2 h-[80px] overflow-y-scroll">
+          {jobRoles.map((role) => (
+            <Badge
+              key={role}
+              variant="interactable"
+              onClick={() => setSelectedJobRole(role)}
+              selected={role === selectedJobRole}
+            >
+              {role}
+            </Badge>
+          ))}
         </div>
       </div>
-      <Button asChild className="w-full">
-        <Link href="/register/content">登録</Link>
+      <Button type="submit" className="w-full">
+        次へ
       </Button>
     </form>
   );
