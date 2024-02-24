@@ -6,22 +6,23 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@clerk/nextjs";
 import QRCode from "react-qr-code";
 import { useFrontendUrl } from "@/hook/process-env";
+import { BsQrCodeScan } from "react-icons/bs";
+import {
+  Dialog,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { DialogContent } from "@radix-ui/react-dialog";
+import QrModal from "./_components/qr-modal";
 
 const PublicUserPage = ({ params }: { params: { userId: string } }) => {
   const { isSignedIn } = useAuth();
-  const frontUrl = useFrontendUrl();
-
-  if (isSignedIn) {
-    return (
-      <div className="h-screen flex justify-center items-center">
-        <QRCode value={`${frontUrl}/${params.userId}`} />
-      </div>
-    );
-  }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#1a1e2e] p-4">
-      <div className=" md:w-[732px]">
+    <div className="flex flex-col items-center relative justify-center min-h-screen bg-[#1a1e2e] p-4">
+      {isSignedIn ? <QrModal params={params} /> : <></>}
+      <div className="md:w-[732px]">
         <div className="flex items-center gap-5 mb-6">
           <Avatar className="h-16 w-16 bg-[#ffa353]">
             <AvatarImage
@@ -48,7 +49,7 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
           </p>
         </div>
         <div className=" gap-12 flex">
-          <a
+          <Link
             href="https://twitter.com/catnose99"
             className="relative flex items-center justify-center rounded-2xl w-[163.75px] h-[163.75px] aspect-square shadow-md bg-custom-gradient"
           >
@@ -64,8 +65,8 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
                 ></path>
               </svg>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://twitter.com/catnose99"
             className="relative flex items-center justify-center rounded-2xl w-[163.75px] h-[163.75px] aspect-square shadow-md bg-custom-gradient"
           >
@@ -81,8 +82,8 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
                 ></path>
               </svg>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://twitter.com/catnose99"
             className="relative flex items-center justify-center rounded-2xl w-[163.75px] h-[163.75px] aspect-square shadow-md bg-custom-gradient"
           >
@@ -98,28 +99,7 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
                 ></path>
               </svg>
             </div>
-          </a>
-          {/* 
-          <Link className="block rounded-lg bg-white p-4 shadow" href="#">
-            <div className="flex justify-between">
-              <span>Portfolio | きたぴー</span>
-            </div>
           </Link>
-          <Link className="block rounded-lg bg-white p-4 shadow" href="#">
-            <div className="flex justify-between">
-              <span>Github</span>
-            </div>
-          </Link>
-          <Link className="block rounded-lg bg-white p-4 shadow" href="#">
-            <div className="flex justify-between">
-              <span>Instagram</span>
-            </div>
-          </Link>
-          <Link className="block rounded-lg bg-white p-4 shadow" href="#">
-            <div className="flex justify-between">
-              <span>x.com</span>
-            </div>
-          </Link> */}
         </div>
       </div>
       <p className="mt-6 text-xs text-gray-500">Cookie Preferences</p>
