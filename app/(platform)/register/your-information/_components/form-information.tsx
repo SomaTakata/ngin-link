@@ -1,13 +1,12 @@
 "use client";
 
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const FormInformation = () => {
-
   const router = useRouter();
 
   // form 送信時
@@ -16,23 +15,30 @@ const FormInformation = () => {
     router.push("/register/content");
   };
 
-
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-6">
-        <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="name">
+        <label
+          className="block mb-2 text-sm font-medium text-gray-900"
+          htmlFor="name"
+        >
           名前
         </label>
         <Input id="name" placeholder="山田 太郎" />
       </div>
       <div className="mb-6">
-        <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="occupation">
+        <label
+          className="block mb-2 text-sm font-medium text-gray-900"
+          htmlFor="occupation"
+        >
           学校名
         </label>
         <Input id="occupation" placeholder="◯◯大学" />
       </div>
       <div className="mb-6">
-        <label className="block mb-2 text-sm font-medium text-gray-900">プログラミング言語 (3つまで選択)</label>
+        <label className="block mb-2 text-sm font-medium text-gray-900">
+          プログラミング言語 (3つまで選択)
+        </label>
         <div className="flex flex-wrap gap-2">
           <Badge variant="secondary">Java</Badge>
           <Badge variant="secondary">Python</Badge>
@@ -50,7 +56,9 @@ const FormInformation = () => {
           <Badge variant="secondary">DevOps</Badge>
         </div>
       </div>
-      <Button asChild className="w-full"><Link href="/register/content">登録</Link></Button>
+      <Button asChild className="w-full">
+        <Link href="/register/content">登録</Link>
+      </Button>
     </form>
   );
 };
