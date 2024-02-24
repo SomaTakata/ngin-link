@@ -1,15 +1,15 @@
 export type GetUsersResponse = {
-  ClerkID: string;
-  NginLink: {
-    NginLinkID: string;
-    SocialLinks: {
-      PlatformName: string;
-      URL: string;
+  clerk_id: string;
+  ngin_link: {
+    ngin_link_id: string;
+    social_links: {
+      platform_name: string;
+      url: string;
     }[];
   };
-  Username: string;
-  ProfileImageURL: string;
-  Description: string;
-  ProgrammingLanguages: string[];
-  JobRole: string;
+  username: string;
+  profile_image_url: string;
+  description: string;
+  programming_languages: string[];
+  job_role: string;
 };
