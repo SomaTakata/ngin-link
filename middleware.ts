@@ -13,7 +13,7 @@ export default authMiddleware({
     if (auth.userId && req.nextUrl.pathname === "/") {
       const url = req.nextUrl.clone();
       url.pathname = "/dashboard";
-      return NextResponse.rewrite(url);
+      return NextResponse.redirect(url);
     }
 
     for (const route of protectRoutes) {

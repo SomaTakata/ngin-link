@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ClerkProvider,
   SignedIn,
@@ -11,7 +13,7 @@ function Header() {
     <header
       style={{ display: "flex", justifyContent: "space-between", padding: 20 }}
     >
-      <h1>My App</h1>
+      <h1>NginLink</h1>
       <SignedIn>
         {/* Mount the UserButton component */}
         <UserButton />
