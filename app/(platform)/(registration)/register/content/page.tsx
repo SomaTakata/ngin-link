@@ -1,4 +1,4 @@
-import AlertUserExists from "../../_component/alert-user-exists";
+import AlertUserExists from "../../../_component/alert-user-exists";
 import FormContent from "./_components/form-content";
 
 const RegisterContent = () => {

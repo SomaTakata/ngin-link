@@ -1,4 +1,4 @@
-import AlertUserExists from "../_component/alert-user-exists";
+import AlertUserExists from "../../_component/alert-user-exists";
 import FormNginLinkId from "./_components/form-nginlink-id";
 
 const Welcome = () => {

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import AlertUserExists from "../../_component/alert-user-exists";
+import AlertUserExists from "../../../_component/alert-user-exists";
 const Done = () => {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen dark:bg-gray-800 p-4">
