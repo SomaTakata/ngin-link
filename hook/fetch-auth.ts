@@ -53,7 +53,7 @@ export const useFetchWithAuth = <T>(input: string) => {
   const [response, setResponse] = useState<T>();
   const [loading, setLoading] = useState<boolean>(true); // 初期値をtrueに設定
   const [isNotFound, setIsNotFound] = useState<boolean>(false);
-  const { getToken } = useAuth();
+  const { getToken, isLoaded } = useAuth();
 
   const [jwt, setJwt] = useState<string>();
   const backendUrl = useBackendUrl();
@@ -82,14 +82,16 @@ export const useFetchWithAuth = <T>(input: string) => {
   }, [jwt, input, backendUrl]);
 
   useEffect(() => {
-    getToken({ template: "LongLongJWT" }).then((token) => {
-      if (!token) {
-        console.error("No token found");
-        setLoading(false); // トークン取得に失敗した場合はローディングを終了
-        return;
-      }
-      setJwt(token);
-    });
+    getToken()
+      .then((token) => {
+        if (!token) {
+          console.error("No token found");
+          setLoading(false); // トークン取得に失敗した場合はローディングを終了
+          return;
+        }
+        setJwt(token);
+      })
+      .catch(console.error);
   }, [getToken]);
 
   useEffect(() => {

@@ -5,8 +5,9 @@ import LinkForm from "./_components/link-form";
 import { useFetchWithAuth, useMutationWithAuth } from "@/hook/fetch-auth";
 import { GetUsersResponse } from "@/types/users-types";
 import { PatchLinksRequest, PatchLinksResponse } from "@/types/links-types";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
+import CopyButton from "./_components/copy-button";
 
 const Dashboard = () => {
   const { response, loading, refetch } =
@@ -36,8 +37,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen w-screen bg-white p-8">
-      <div className="flex justify-between">
+    <div className="h-screen w-screen bg-white p-8">
+      <div className="flex justify-center items-center">
         <form
           className="w-1/2 space-y-6 pr-4"
           onSubmit={handleSubmit((data) => {
@@ -47,11 +48,14 @@ const Dashboard = () => {
           <div className="flex items-center justify-between">
             <h1 className="text-lg font-semibold">
               Your NginLink is live:
-              <a className="text-blue-600" href="/somatakata">
-                ngin-link.com/SomaTakata
+              <a
+                className="text-blue-600"
+                href={`/${response?.ngin_link.ngin_link_id}`}
+              >
+                ngin-link.com/{response?.ngin_link.ngin_link_id}
               </a>
             </h1>
-            <Button className=" ">Copy URL</Button>
+            <CopyButton url={response?.ngin_link.ngin_link_id} />
           </div>
           {loading && <p>Now Loading...</p>}
           {!loading &&
@@ -70,9 +74,9 @@ const Dashboard = () => {
             <Button type="submit">保存</Button>
           </div>
         </form>
-        <div className="w-1/2 pl-4">
+        {/* <div className="w-1/2 pl-4">
           <div className="bg-white p-4 shadow-sm rounded-md flex justify-center items-center"></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -10,6 +10,12 @@ export default authMiddleware({
     // 保護するルート (例えば, /dashboard/* が保護される)
     const protectRoutes = ["/dashboard", "/welcome", "/register"];
 
+    if (auth.userId && req.nextUrl.pathname === "/") {
+      const url = req.nextUrl.clone();
+      url.pathname = "/dashboard";
+      return NextResponse.redirect(url);
+    }
+
     for (const route of protectRoutes) {
       if (!auth.userId && req.nextUrl.pathname.startsWith(route)) {
         return redirectToSignIn({ returnBackUrl: req.url });
