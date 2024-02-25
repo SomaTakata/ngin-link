@@ -29,9 +29,9 @@ const Dashboard = () => {
     // バックエンドに PATCH して、refetch
     mutate(body, () => {
       refetch();
-      toast({
-        title: "URL を保存しました！",
-      });
+      // toast({
+      //   title: "URL を保存しました！",
+      // });
     });
   };
 

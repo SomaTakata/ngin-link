@@ -11,7 +11,7 @@ import { FieldValues, UseFormRegister } from "react-hook-form";
 // propsの型定義
 interface LinkFormProps {
   platform: string;
-  urlTo: string;
+  urlTo?: string;
   formRegister: UseFormRegister<FieldValues>;
 }
 
@@ -32,7 +32,7 @@ function LinkForm({ platform, urlTo, formRegister }: LinkFormProps) {
       iconColor = "text-green-500";
       placeHolderUrl = "https://qiita.com/";
       break;
-    case "twitter":
+    case "x":
       IconComponent = FaXTwitter;
       iconColor = "text-black";
       placeHolderUrl = "https://twitter.com/";

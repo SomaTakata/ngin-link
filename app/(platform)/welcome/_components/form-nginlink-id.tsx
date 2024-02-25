@@ -2,8 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+
 import { useForm } from "react-hook-form";
-import AlertUserExists from "../../_component/alert-user-exists";
 
 const FormNginLinkId = () => {
   const router = useRouter();
@@ -11,14 +11,12 @@ const FormNginLinkId = () => {
   // react-hook-form での form 送信
   const { register, handleSubmit } = useForm();
   const onSubmit = (data: any) => {
-    localStorage.setItem("nginlinkId", data.nginlinkId);
+    localStorage.setItem("ngin_link_id", data.ngin_link_id);
     router.push("/register/your-information");
   };
 
   return (
     <div>
-      {/* FIXME: register 処理が一通り実装されたらコメントアウト解除 */}
-      {/* <AlertUserExists /> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mt-8 w-full max-w-md">
           <div className="flex items-center rounded-md border border-gray-300 bg-white px-3 py-2">
@@ -27,7 +25,7 @@ const FormNginLinkId = () => {
               className="ml-1 flex-1 border-none bg-transparent text-gray-900 focus:ring-0"
               placeholder="username"
               type="text"
-              {...register("nginlinkId", {
+              {...register("ngin_link_id", {
                 required: true,
               })}
             />

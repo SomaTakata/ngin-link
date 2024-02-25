@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import LinkForm from "./_components/link-form";
+import FormContent from "./_components/form-content";
 
 const RegisterContent = () => {
   return (
@@ -10,18 +8,7 @@ const RegisterContent = () => {
         Add your own content below. You can also further customise your links
         and appearance later.
       </p>
-      <div className="mb-4">
-        <h3 className="text-lg font-medium mb-2">Replace with your content</h3>
-        <div className="space-y-3">
-          <LinkForm platform="github" />
-          <LinkForm platform="twitter" />
-          <LinkForm platform="zenn" />
-          <LinkForm platform="qiita" />
-        </div>
-      </div>
-      <Button asChild className="w-full mt-4">
-        <Link href="/register/done">Next</Link>
-      </Button>
+      <FormContent />
     </div>
   );
 };

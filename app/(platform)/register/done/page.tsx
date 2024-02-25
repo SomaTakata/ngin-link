@@ -16,7 +16,7 @@ const Done = () => {
         </p>
         <div className="mt-6">
           <Button asChild className="w-full mt-4">
-            <Link href="/dashboard">Go to Homepage</Link>
+            <Link href="/dashboard">Go to Dashboard</Link>
           </Button>
         </div>
       </div>
