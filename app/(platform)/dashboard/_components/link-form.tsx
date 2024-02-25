@@ -52,7 +52,7 @@ function LinkForm({ platform, urlTo, formRegister }: LinkFormProps) {
       <IconComponent className={iconColor} size={22} />
       <Input
         className="flex-grow mx-2"
-        placeholder={placeHolderUrl}
+        placeholder="user_id"
         defaultValue={urlTo}
         {...formRegister(platform)}
       />
