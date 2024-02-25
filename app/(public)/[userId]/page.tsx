@@ -30,9 +30,9 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
 
   const socialLinks = response?.ngin_link?.social_links;
   return (
-    <div>
+    <div className="mb-12">
       <QrModal params={params} />
-      <div className="flex items-center gap-5 mb-6">
+      <div className="flex items-center gap-5 mb-">
         <Avatar
           className={`h-16 w-16 ${response?.profile_image_url.length === 0 ? "bg-[#ffa353]" : ""}`}
         >
@@ -51,7 +51,8 @@ const PublicUserPage = ({ params }: { params: { userId: string } }) => {
       </p>
       <div className="w-full flex flex-col gap-2 mt-4 mb-24 ">
         <p className="text-[#f2f4ffcc] text-sm font-bold">
-          主な使用言語 : {response?.programming_languages}
+          主な使用言語 :{" "}
+          {response?.programming_languages?.join(" | ") || "情報なし"}
         </p>
         <p className="text-[#f2f4ffcc] text-sm font-bold">
           主な職種 : {response?.job_role}
