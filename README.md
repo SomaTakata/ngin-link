@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ngin Link
 
-## Getting Started
+![Ngin Link](https://github.com/SomaTakata/ngin-link/assets/77139337/51bd0c3e-6a25-488c-b7a2-f5a710bfc797)
 
-First, run the development server:
+## 🎥 作品紹介動画
+[デモ動画を見る](https://github.com/SomaTakata/ngin-link/assets/77139337/4445a720-9d9d-4de4-841f-18f2c4f20880)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🖋 スライドURL
+[プレゼンテーションのスライドを見る](https://www.canva.com/design/DAF9uAjRo5g/YJ4v04b7g3Tywm7QZjajKw/view?utm_content=DAF9uAjRo5g&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💪 製品概要
+Ngin Linkは、エンジニアのためのリンクページ作成&交換ツールです。
+エンジニアらしいおしゃれなリンクページを簡単に作成でき、QRコードで簡単に交換できることで、エンジニア同士の交流を促進します。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🔥 背景
+エンジニアとして、技術ブログやGitHub、プロダクトへのリンクを一箇所にまとめたいと思ったことはありませんか？しかし、通常のリンクツリーよりも、もっとエンジニアらしいかっこいいリンクページが欲しいと思うこともあるでしょう。また、勉強会やハッカソンでの交流時に、お互いの活動について話題を見つけたいと思うこともあるでしょう。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### ✨ 製品の特色
+- **おしゃれなUI**: エンジニアらしい質感とデザインにこだわったリンクページを簡単に作成できます。
+- **QRコード交換**: 自分のリンクページをQRコードで簡単に共有し、エンジニア同士の交流を促進します。
 
-## Learn More
+####  🔥 主要機能
+- **リンクページ作成**: シンプルで使いやすいUIで、短時間でリンクページを作成できます。
+- **QRコード共有**: 作成したリンクページをQRコードで簡単に共有し、他のエンジニアと情報を交換できます。
 
-To learn more about Next.js, take a look at the following resources:
+####  🚀 技術スタック
+- **フロントエンド**: Next.js, deployed on Vercel
+- **バックエンド**: Go (Gin, GORM), MySQL, deployed on fly.io and PlanetScale
+- **認証**: Clerk
+- **その他**: バックエンドのクリーンアーキテクチャ、fetchのHooks
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+####  🥳 今後の展望
+- リンクページのデザイン向上
+- 交換履歴機能の追加
+- より簡単なリンク交換方法（例：Bluetoothを使ったワンタッチ交換）
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ご興味を持っていただけましたら、ぜひGitHubでスターをつけてサポートをお願いします！
