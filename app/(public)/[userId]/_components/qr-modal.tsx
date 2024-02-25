@@ -5,7 +5,6 @@ import QRCode from "react-qr-code";
 import { useFrontendUrl } from "@/hook/process-env";
 
 const QrModal = ({ params }: { params: { userId: string } }) => {
-  const frontUrl = useFrontendUrl();
   return (
     <Dialog>
       <DialogTrigger asChild>
