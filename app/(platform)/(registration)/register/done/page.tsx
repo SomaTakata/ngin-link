@@ -5,7 +5,6 @@ import AlertUserExists from "../../../_component/alert-user-exists";
 const Done = () => {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen dark:bg-gray-800 p-4">
-      <AlertUserExists />
       <div className="w-full max-w-2xl p-8 bg-white rounded-lg shadow-md dark:bg-gray-900">
         <div className="flex items-center justify-center">
           <IoMdCheckmarkCircleOutline size={100} className=" text-green-500" />
