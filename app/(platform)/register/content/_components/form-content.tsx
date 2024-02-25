@@ -53,7 +53,7 @@ const FormContent = () => {
     };
 
     mutate(postBody, () => {
-      router.push("/dashboard");
+      router.push("/register/done");
     });
   };
 
