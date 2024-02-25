@@ -76,6 +76,7 @@ export const useFetchWithAuth = <T>(input: string) => {
         setResponse(res);
       })
       .catch((err) => {
+        console.log(err);
         setLoading(false); // エラー発生時にもローディングを終了
       });
   }, [jwt, input, backendUrl]);
