@@ -36,8 +36,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen w-screen bg-white p-8">
-      <div className="flex justify-between">
+    <div className="h-screen w-screen bg-white p-8">
+      <div className="flex justify-center items-center">
         <form
           className="w-1/2 space-y-6 pr-4"
           onSubmit={handleSubmit((data) => {
@@ -70,9 +70,9 @@ const Dashboard = () => {
             <Button type="submit">保存</Button>
           </div>
         </form>
-        <div className="w-1/2 pl-4">
+        {/* <div className="w-1/2 pl-4">
           <div className="bg-white p-4 shadow-sm rounded-md flex justify-center items-center"></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
