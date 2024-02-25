@@ -7,6 +7,7 @@ import { GetUsersResponse } from "@/types/users-types";
 import { PatchLinksRequest, PatchLinksResponse } from "@/types/links-types";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
+import CopyButton from "./_components/copy-button";
 
 const Dashboard = () => {
   const { response, loading, refetch } =
@@ -47,11 +48,14 @@ const Dashboard = () => {
           <div className="flex items-center justify-between">
             <h1 className="text-lg font-semibold">
               Your NginLink is live:
-              <a className="text-blue-600" href="/somatakata">
-                ngin-link.com/SomaTakata
+              <a
+                className="text-blue-600"
+                href={`/${response?.ngin_link.ngin_link_id}`}
+              >
+                ngin-link.com/{response?.ngin_link.ngin_link_id}
               </a>
             </h1>
-            <Button className=" ">Copy URL</Button>
+            <CopyButton url={response?.ngin_link.ngin_link_id} />
           </div>
           {loading && <p>Now Loading...</p>}
           {!loading &&

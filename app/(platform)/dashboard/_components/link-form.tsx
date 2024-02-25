@@ -7,7 +7,7 @@ import { SiZenn, SiQiita } from "react-icons/si";
 import { BsGithub } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
 import { FieldValues, UseFormRegister } from "react-hook-form";
-
+import { IoPersonCircleSharp } from "react-icons/io5";
 // propsの型定義
 interface LinkFormProps {
   platform: string;
@@ -24,23 +24,29 @@ function LinkForm({ platform, urlTo, formRegister }: LinkFormProps) {
   switch (platform) {
     case "zenn":
       IconComponent = SiZenn;
-      iconColor = "text-blue-500";
-      placeHolderUrl = "https://zenn.dev/";
+      iconColor = "text-blue-400";
+      placeHolderUrl = "your use_id";
+
       break;
     case "qiita":
       IconComponent = SiQiita;
       iconColor = "text-green-500";
-      placeHolderUrl = "https://qiita.com/";
+      placeHolderUrl = "your use_id";
       break;
     case "x":
       IconComponent = FaXTwitter;
       iconColor = "text-black";
-      placeHolderUrl = "https://twitter.com/";
+      placeHolderUrl = "your use_id";
       break;
     case "github":
       IconComponent = BsGithub;
       iconColor = "text-black";
-      placeHolderUrl = "https://github.com/";
+      placeHolderUrl = "your use_id";
+      break;
+    case "personal":
+      IconComponent = IoPersonCircleSharp;
+      iconColor = "text-black";
+      placeHolderUrl = "https://○○○○○○";
       break;
     default:
       IconComponent = XIcon;
@@ -52,7 +58,7 @@ function LinkForm({ platform, urlTo, formRegister }: LinkFormProps) {
       <IconComponent className={iconColor} size={22} />
       <Input
         className="flex-grow mx-2"
-        placeholder="user_id"
+        placeholder={placeHolderUrl}
         defaultValue={urlTo}
         {...formRegister(platform)}
       />

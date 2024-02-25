@@ -16,14 +16,7 @@ const FormContent = () => {
 
   const router = useRouter();
 
-  const platforms = {
-    github: "https://github.com/",
-    x: "https://twitter.com/",
-    zenn: "https://zenn.dev/",
-    qiita: "https://qiita.com/",
-  };
-
-  const platformsMap = new Map(Object.entries(platforms));
+  const platforms = ["github", "x", "zenn", "qiita", "personal"];
 
   const onSubmit = (data: Object) => {
     // Object を PatchLinksRequest に変換
@@ -31,7 +24,7 @@ const FormContent = () => {
     Object.entries(data).forEach(([key, value]) => {
       body.social_links.push({
         platform_name: key,
-        url: platformsMap.get(key) + value,
+        url: value,
       });
     });
 
@@ -70,9 +63,11 @@ const FormContent = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <h3 className="text-lg font-medium mb-2">Replace with your content</h3>
+        <h3 className="text-lg font-medium mb-2">
+          プラットフォームのユーザ ID を入力
+        </h3>
         <div className="space-y-3">
-          {Object.keys(platforms).map((platform) => (
+          {platforms.map((platform) => (
             <LinkForm
               key={platform}
               platform={platform}

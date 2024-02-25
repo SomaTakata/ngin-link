@@ -122,11 +122,11 @@ const FormInformation = () => {
           {...register("username", { required: true })}
         />
       </div>
-      <div className="mb-6">
-        <label className="block mb-2 text-sm font-medium text-gray-900">
+      <div className="mb-10">
+        <label className="block mb-4 text-sm font-medium text-gray-900">
           プログラミング言語 (3つまで選択)
         </label>
-        <div className="flex flex-wrap gap-2 h-[80px] overflow-y-scroll">
+        <div className="flex flex-wrap gap-2 h-[150px] overflow-y-scroll">
           {programmingLanguages.map((language) => (
             <Badge
               key={language}
@@ -139,11 +139,11 @@ const FormInformation = () => {
           ))}
         </div>
       </div>
-      <div className="mb-6">
-        <label className="block mb-2 text-sm font-medium text-gray-900">
+      <div className="mb-10">
+        <label className="block mb-4 text-sm font-medium text-gray-900">
           現在の業種もしくはなりたい職種 (1つ選択)
         </label>
-        <div className="flex flex-wrap gap-2 h-[80px] overflow-y-scroll">
+        <div className="flex flex-wrap gap-2 h-[120px] overflow-y-scroll">
           {jobRoles.map((role) => (
             <Badge
               key={role}

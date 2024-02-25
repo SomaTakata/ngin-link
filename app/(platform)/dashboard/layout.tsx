@@ -7,13 +7,14 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/nextjs";
+import { Logo } from "@/components/logo";
 
 function Header() {
   return (
     <header
       style={{ display: "flex", justifyContent: "space-between", padding: 20 }}
     >
-      <h1>NginLink</h1>
+      <Logo />
       <SignedIn>
         {/* Mount the UserButton component */}
         <UserButton />
